@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Opcoes.unity
     guid: 729b404e4770da048881909ceaa0c6a2
   - enabled: 1
-    path: Assets/Scenes/Fase1.unity
+    path: Assets/Scenes/MapaPrincipal.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Fase2.unity
-    guid: f844661954b877a4e9b3e62f1d43affe
+    path: Assets/Scenes/Boss1.unity
+    guid: de0c925ee7c55284e83103c376700bc0
   - enabled: 1
-    path: Assets/Scenes/Fase3.unity
-    guid: 72ff6e51292857f4ba8bedcb9c5b9160
+    path: Assets/Scenes/Boss2.unity
+    guid: 45670fa781cd3f64da3abdf47fcf5326
+  - enabled: 1
+    path: Assets/Scenes/Boss3.unity
+    guid: b7f5c7ae95d77994c802f02d9eb9abf3
   m_configObjects: {}

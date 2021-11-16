@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class DestroySwordAttack : MonoBehaviour
 {
-    float timeDestroy = 0f;
-    private Transform target;
-    // Start is called before the first frame update
+    Guns guns = new Guns(0, 0.2f);
+    Transform spawnBullet;
+    float timeDestroy;
+
     void Start()
     {
-        target = GameObject.Find("SpawnAttack").transform;
+        spawnBullet = GameObject.Find("SpawnSword").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = target.position;
-        transform.rotation = target.rotation;
+
+        transform.position = spawnBullet.position;
+        transform.rotation = spawnBullet.rotation;
 
         timeDestroy += 1 * Time.deltaTime;
-        if (timeDestroy >= 0.2f) 
+        if (timeDestroy >= guns.destroyAttack)
         {
             Destroy(gameObject);
         }
 
     }
+
 }
