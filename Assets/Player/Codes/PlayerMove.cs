@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     
-    public Rigidbody2D rb;
-    public float moveSpeed;
+    Rigidbody2D rb;
+    Player player = new Player(10, 0);
     private Vector2 moveDirection;
 
     void Start()
     {
-     
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -35,6 +35,6 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        rb.velocity = new Vector2(moveDirection.x * player.speed, moveDirection.y * player.speed);
     }
 }
