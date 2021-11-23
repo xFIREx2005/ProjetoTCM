@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    Enemy enemy;
     public GameObject colAttack;
     public Transform spawnAttack, m_PositionPlayer;
-    public float coldown;
-
-  
-
-
-
     float time;
+    public float coldown;
 
     void Start()
     {
-        
+        enemy = new Enemy(0, 0, 0, 0, 0, 0, 0, false, coldown);
+        m_PositionPlayer = GameObject.Find("Player").transform;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        
-
-            time += 1 * Time.deltaTime;
+        Check();
+    }
+    void Check()
+    {
+        time += 1 * Time.deltaTime;
         float _distPlayer = Vector2.Distance(transform.position, m_PositionPlayer.position);
 
-        if (_distPlayer <= 1f) Shoot();
+        if (_distPlayer <= 1.7f) Shoot();
     }
 
     void Shoot()
     {
 
-        if (time >= coldown)
+        if (time >= enemy.colAttack)
         {
-                Instantiate(colAttack, spawnAttack.position, transform.rotation);
-                time = 0f;
+            Instantiate(colAttack, spawnAttack.position, transform.rotation);
+            time = 0f;
         }
     }
 }

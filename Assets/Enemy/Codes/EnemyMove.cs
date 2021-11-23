@@ -5,106 +5,129 @@ using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
-    NavMeshAgent agent;
-
-    public GameObject enemyMinimap;
-    public Transform m_Position, m_PositionPlayer, m_PositionAttack;
-    public float m_TempoEspera, m_DistanceMove, velPatrol, velFollow, disFollow;
-    float x_Min, x_Max, y_Min, y_Max;
-    float m_Tempo;
-    public bool patrol, followPlayer; 
-
-    public SpriteRenderer sprEnemy;
-
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-
-        x_Min = transform.position.x - m_DistanceMove;
-        x_Max = transform.position.x + m_DistanceMove;
-        y_Min = transform.position.y - m_DistanceMove;
-        y_Max = transform.position.y + m_DistanceMove;
-
-        m_Position.position = new Vector2(Random.Range(x_Min, x_Max), Random.Range(y_Min, y_Max));
-        m_Tempo = m_TempoEspera;
-    }
-
     
-    void Update()
-    {
-        x_Min = transform.position.x - m_DistanceMove;
-        x_Max = transform.position.x + m_DistanceMove;
-        y_Min = transform.position.y - m_DistanceMove;
-        y_Max = transform.position.y + m_DistanceMove;
+        
+        NavMeshAgent agent;
+        public GameObject enemyMinimap;
+        public SpriteRenderer sprEnemy;
+        public Transform m_Position;
+        private Transform m_PositionPlayer;
+        private Animator myAnim;
 
-        CheckMove();
-        CheckSpr();
-    }
+        float timer, xMax, xMin, yMax, yMin, posX, posY;
+        public bool patrol, followPlayer;
+        public float timeStop, speedFollow, speedPatrol, disPatrol, disFollow, stopDis;
 
-    void CheckSpr()
-    {
-       
-        if (sprEnemy.flipX == true)
+
+        Enemy enemy; 
+
+        void Start()
         {
-            Vector2 _dirSpawn = new Vector2((transform.position.x + 0.5f), transform.position.y);
-            m_PositionAttack.position = _dirSpawn;
+            Enemy.QtdInstancias();
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+
+            myAnim = GetComponent<Animator>();
+            sprEnemy = GetComponent<SpriteRenderer>();
+            m_PositionPlayer = GameObject.Find("Player").transform;
+
+            PosMove();
+            m_Position.position = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
+            timer = timeStop;
+
+            enemy = new Enemy(posX,posY,speedPatrol,speedFollow,disPatrol,disFollow,0,false,0);
         }
-        else
+
+
+        void Update()
         {
-            Vector2 _dirSpawn = new Vector2((transform.position.x - 0.5f), transform.position.y);
-            m_PositionAttack.position = _dirSpawn;
+            PosMove();
+            CheckMove();
+            CheckSpr();
         }
-    }
 
-    void CheckMove()
-    {
-        float _dist = Vector2.Distance(transform.position, m_Position.position);
-        float _distPlayer = Vector2.Distance(transform.position, m_PositionPlayer.position);
-
-        if (followPlayer == true)
+        void CheckSpr()
         {
-            if (_distPlayer <= disFollow)
-            {
-                MovePlayer();
-                m_Position.position = transform.position;
-                enemyMinimap.SetActive(true);
 
+        }
+
+        void CheckMove()
+        {
+            float _dist = Vector2.Distance(transform.position, m_Position.position);
+            float _distPlayer = Vector2.Distance(transform.position, m_PositionPlayer.position);
+
+            if (followPlayer == true)
+            {
+                if (_distPlayer <= disFollow)
+                {
+                    MovePlayer();
+                    m_Position.position = transform.position;
+                    enemyMinimap.SetActive(true);
+                    if (_distPlayer <= 1.2)
+                    {
+                        agent.speed = 0f;
+                    }
+                }
+                else if (patrol == true)
+                {
+                    MovePatrol();
+                    enemyMinimap.SetActive(false);
+                    if (_dist <= 0.1f)
+                    {
+                        agent.speed = 0f;
+                    }
+                }
             }
-            else if (patrol == true)
-            { 
-                MovePatrol();
-                enemyMinimap.SetActive(false);
+            else if (patrol == true) MovePatrol();
+
+            if (_dist <= 2f)
+                if (timer <= 0)
+                {
+                    m_Position.position = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
+                    timer = timeStop;
+                }
+                else
+                {
+                    timer -= Time.deltaTime;
+                }
+
+            if (agent.speed <= 0)
+            {
+                myAnim.SetBool("IsMoving", false);
             }
         }
-        else if (patrol == true) MovePatrol();
 
-        if (_dist <= 2f)
-            if (m_Tempo <= 0)
-            {
-                m_Position.position = new Vector2(Random.Range(x_Min, x_Max), Random.Range(y_Min, y_Max));
-                m_Tempo = m_TempoEspera;
-            }
-            else
-            {
-                m_Tempo -= Time.deltaTime;
-            }
-    }
+        void MovePlayer()
+        {
+            agent.SetDestination(m_PositionPlayer.transform.position);
+            agent.stoppingDistance = stopDis;
+            agent.speed = speedFollow;
+
+            myAnim.SetBool("IsMoving", true);
+            myAnim.SetFloat("MoveX", (m_PositionPlayer.transform.position.x - transform.position.x));
+            myAnim.SetFloat("MoveY", (m_PositionPlayer.transform.position.y - transform.position.y));
+        }
+
+        void MovePatrol()
+        {
+            agent.SetDestination(m_Position.transform.position);
+            agent.stoppingDistance = 0.1f;
+            agent.speed = speedPatrol;
+
+            myAnim.SetBool("IsMoving", true);
+            myAnim.SetFloat("MoveX", (m_Position.transform.position.x - transform.position.x));
+            myAnim.SetFloat("MoveY", (m_Position.transform.position.y - transform.position.y));
+        }
+        void PosMove()
+        {
+            posX = transform.position.x;
+            posY = transform.position.y;
+
+            xMin = posX - disPatrol;
+            xMax = posX + disPatrol;
+            yMin = posY - disPatrol;
+            yMax = posY + disPatrol;
+        }
     
-    void MovePlayer()
-    {
-        sprEnemy.flipX = (m_PositionPlayer.position.x > transform.position.x);
-        agent.SetDestination(m_PositionPlayer.transform.position);
-        agent.stoppingDistance = 1.4f;
-        agent.speed = velFollow;
-    }
-
-    void MovePatrol()
-    {
-        sprEnemy.flipX = (m_Position.position.x > transform.position.x);
-        agent.SetDestination(m_Position.transform.position);
-        agent.stoppingDistance = 0.1f;
-        agent.speed = velPatrol;
-    }
 }

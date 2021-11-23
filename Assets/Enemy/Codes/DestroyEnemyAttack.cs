@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyEnemyAttack : MonoBehaviour
-{
-    Transform spawnBullet;
-    float timeDestroy;
+{    float timeDestroy;
     public float destroyAttack;
 
     void Start()
@@ -14,13 +12,8 @@ public class DestroyEnemyAttack : MonoBehaviour
     }
     void Update()
     {
-        if (GameObject.Find("Cobra"))
-        {
-            spawnBullet = GameObject.Find("EnemyAttackSpawn").transform;
-            transform.position = spawnBullet.position;
-            transform.rotation = spawnBullet.rotation;
-        }
-        else Destroy(gameObject);
+        
+        
 
         timeDestroy += 1 * Time.deltaTime;
         if (timeDestroy >= destroyAttack)

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    
+    Player player = new Player(10, 0, false, false, 0, false, 0);
     Rigidbody2D rb;
-    Player player = new Player(10, 0);
     private Vector2 moveDirection;
 
     void Start()

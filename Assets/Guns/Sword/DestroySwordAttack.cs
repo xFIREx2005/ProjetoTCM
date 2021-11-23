@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroySwordAttack : MonoBehaviour
 {
-    Guns guns = new Guns(0, 0.2f);
+    Guns guns = new Guns(0, 0.2f,0.2f);
     Transform spawnBullet;
     float timeDestroy;
 
