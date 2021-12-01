@@ -2,29 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordBullet : MonoBehaviour
+public class SwordBullet : BulletControler
 {
-    Guns guns = new Guns(0,0, 0.3f);
-    Transform spawnBullet;
-    float timeDestroy;
-
+    
     void Start()
     {
+        damage = 2;
+        coldown = 0.4f;
         spawnBullet = GameObject.Find("SpawnSword").transform;
+        StartCoroutine(TimerDestroy());
     }
 
     void Update()
     {
-
-        transform.position = spawnBullet.position;
-        transform.rotation = spawnBullet.rotation;
-
-        timeDestroy += 1 * Time.deltaTime;
-        if (timeDestroy >= guns.destroyAttack)
+        SwordBullet();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
-        }
+            if (collision.CompareTag("Enemy"))
+            {
+                EnemyControler enemy = collision.GetComponent<EnemyControler>();
+                if (enemy != null)
+                {
+                    enemy.DamageEnemy(damage);
+                }
+            }
 
+        }
     }
 
 }

@@ -133,12 +133,10 @@ GameObject:
   - component: {fileID: 6806794831871848481}
   - component: {fileID: 6806794831871848486}
   - component: {fileID: 6806794831871848485}
-  - component: {fileID: 6806794831871848484}
-  - component: {fileID: 6806794831871848483}
-  - component: {fileID: 6806794831871848482}
   - component: {fileID: 6806794831871848487}
   - component: {fileID: 7458622463521961158}
   - component: {fileID: 4314743430917424875}
+  - component: {fileID: 5883946235790515646}
   m_Layer: 0
   m_Name: SprLontra
   m_TagString: Enemy
@@ -233,52 +231,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6806794831871848484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6806794831871848480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c238a063285ef438ee10bd737a58b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colAttack: {fileID: 7898731463794468407, guid: 3ce8d4ee9580db749bc6346b4861e167,
-    type: 3}
-  spawnAttack: {fileID: 6806794830568245053}
-  m_PositionPlayer: {fileID: 0}
---- !u!114 &6806794831871848483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6806794831871848480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b7dba9d2ff2a3447a6b3e6c085ee7f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6806794831871848482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6806794831871848480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5e14c3c254e97f4eb379d27718a8fda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMinimap: {fileID: 6806794830486699387}
-  sprEnemy: {fileID: 0}
-  m_PositionAttack: {fileID: 0}
-  patrol: 0
-  followPlayer: 0
-  timeStop: 0
 --- !u!195 &6806794831871848487
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -348,3 +300,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5883946235790515646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806794831871848480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5ac4b64c863134b8aceee82a26c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedP: 0
+  speedF: 0
+  disPatrol: 0
+  disFollow: 8
+  stopDis: 0
+  coldown: 0
+  timeStop: 0
+  life: 0
+  patrol: 0
+  followPlayer: 0
+  posPatrulha: {fileID: 0}
+  posSpAttack: {fileID: 6806794830568245053}
+  enemyMinimap: {fileID: 6806794830486699387}
+  colAttack: {fileID: 7898731463794468407, guid: 3ce8d4ee9580db749bc6346b4861e167,
+    type: 3}

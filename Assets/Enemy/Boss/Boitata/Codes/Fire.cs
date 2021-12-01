@@ -27,4 +27,22 @@ public class Fire : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (collision.CompareTag("Player"))
+            {
+                PlayerControler player = collision.GetComponent<PlayerControler>();
+                if (player != null)
+                {
+                    player.DamagePlayer(1);
+                }
+            }
+            Destroy(gameObject);
+
+        }
+        if (collision.gameObject.tag == "AttackPlayer") Destroy(gameObject);
+    }
 }

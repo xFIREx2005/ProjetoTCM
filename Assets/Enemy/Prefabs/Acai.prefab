@@ -74,9 +74,7 @@ GameObject:
   - component: {fileID: 7711407107328702935}
   - component: {fileID: 7711407107328702933}
   - component: {fileID: 7711407107328702932}
-  - component: {fileID: 5127742071426915000}
-  - component: {fileID: 2971346130687972015}
-  - component: {fileID: 1499384575319574445}
+  - component: {fileID: 940199104794254130}
   m_Layer: 0
   m_Name: SprAcai
   m_TagString: EnemyAttack
@@ -240,7 +238,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5127742071426915000
+--- !u!114 &940199104794254130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,50 +247,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 7711407107328702940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a76643be15528e4aa76c750e56984d0, type: 3}
+  m_Script: {fileID: 11500000, guid: dd9977a1da215604d94e03dc051c410e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colAttack: {fileID: 3453134520189344283, guid: 6a1aaaff4695f8e448d1a84a55e88e9d,
-    type: 3}
-  spawnAttack: {fileID: 7711407107192881669}
-  m_PositionPlayer: {fileID: 0}
-  coldown: 1
---- !u!114 &2971346130687972015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7711407107328702940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7833ffc56e98b204792481282e652754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1
---- !u!114 &1499384575319574445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7711407107328702940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23acdfad5eadfdc45b8490c8421482ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMinimap: {fileID: 7711407108038022627}
-  sprEnemy: {fileID: 0}
-  m_Position: {fileID: 7711407106385585279}
-  patrol: 1
-  followPlayer: 1
-  timeStop: 3
-  speedFollow: 7
-  speedPatrol: 3
+  speedP: 3
+  speedF: 8
   disPatrol: 1.5
   disFollow: 6
   stopDis: 0.1
+  coldown: 1
+  timeStop: 3
+  life: 1
+  patrol: 0
+  followPlayer: 1
+  posPatrulha: {fileID: 7711407106385585279}
+  posSpAttack: {fileID: 7711407107192881669}
+  enemyMinimap: {fileID: 7711407108038022627}
+  colAttack: {fileID: 3453134520189344283, guid: 6a1aaaff4695f8e448d1a84a55e88e9d,
+    type: 3}
 --- !u!1 &7711407107777218003
 GameObject:
   m_ObjectHideFlags: 0
