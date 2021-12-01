@@ -44,10 +44,10 @@ public class Player : PlayerControler
 
     public void Run()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && (Input.GetButton("Vertical") || Input.GetButton("Horizontal")))
         {
             speed = 13;
-            if (numSmoke <= 6)
+            if (numSmoke <= 3)
                 if (checkSmokeRun == true)
                 {
                     Instantiate(smokeRun, smokeSpawn.transform.position, transform.rotation);
@@ -68,7 +68,7 @@ public class Player : PlayerControler
 
     IEnumerator RunSmoke()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.03f);
         checkSmokeRun = true;
     }
 }
