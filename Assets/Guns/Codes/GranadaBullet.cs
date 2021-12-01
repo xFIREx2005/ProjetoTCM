@@ -19,8 +19,7 @@ public class GranadaBullet : BulletControler
     {
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyAttack")
         {
-            Instantiate(colGranada, transform.position, transform.rotation);
-            Destroy(gameObject);
+            speed -= 5;
         }
     }
 }
