@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e514dc11baa1b7b4e9b7f13a9e79b75a, type: 3}
+  m_Name: Arbusto
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 8336042481606949662, guid: 76f4781085184cc409d032963661c82f, type: 3}
+  - {fileID: 1906614572724239760, guid: 76f4781085184cc409d032963661c82f, type: 3}
+  - {fileID: 83883243438479409, guid: 76f4781085184cc409d032963661c82f, type: 3}
+  minSpeed: 1
+  maxSpeed: 6

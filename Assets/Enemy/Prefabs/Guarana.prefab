@@ -137,9 +137,7 @@ GameObject:
   - component: {fileID: 6065485196316814708}
   - component: {fileID: 6065485196316814706}
   - component: {fileID: 6065485196316814709}
-  - component: {fileID: 2212110716553193696}
-  - component: {fileID: 9165185784341378853}
-  - component: {fileID: 7596667598038079179}
+  - component: {fileID: 8787090062698989739}
   m_Layer: 0
   m_Name: SprGuarana
   m_TagString: Enemy
@@ -302,7 +300,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2212110716553193696
+--- !u!114 &8787090062698989739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,47 +309,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6065485196316814669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a76643be15528e4aa76c750e56984d0, type: 3}
+  m_Script: {fileID: 11500000, guid: dd9977a1da215604d94e03dc051c410e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colAttack: {fileID: 3453134520189344283, guid: 6a1aaaff4695f8e448d1a84a55e88e9d,
-    type: 3}
-  spawnAttack: {fileID: 6065485196015085352}
-  m_PositionPlayer: {fileID: 0}
-  coldown: 1.8
---- !u!114 &9165185784341378853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6065485196316814669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7833ffc56e98b204792481282e652754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speedP: 2
+  speedF: 6
+  disPatrol: 1.5
+  disFollow: 5
+  stopDis: 1.2
+  coldown: 1.2
+  timeStop: 3
   life: 2
---- !u!114 &7596667598038079179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6065485196316814669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23acdfad5eadfdc45b8490c8421482ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMinimap: {fileID: 6065485196065290289}
-  sprEnemy: {fileID: 0}
-  m_Position: {fileID: 6065485195723680058}
   patrol: 1
   followPlayer: 1
-  timeStop: 3
-  speedFollow: 6
-  speedPatrol: 2
-  disPatrol: 2
-  disFollow: 5
-  stopDis: 1.4
+  posPatrulha: {fileID: 6065485195723680058}
+  posSpAttack: {fileID: 6065485196015085352}
+  enemyMinimap: {fileID: 6065485196065290289}
+  colAttack: {fileID: 3453134520189344283, guid: 6a1aaaff4695f8e448d1a84a55e88e9d,
+    type: 3}

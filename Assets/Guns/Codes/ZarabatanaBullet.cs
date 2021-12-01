@@ -2,31 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZarabatanaBullet : MonoBehaviour
+public class ZarabatanaBullet : BulletControler
 {
-    Guns guns = new Guns(0, 20, 0.4f);
-    private float timer;
-
     void Start()
     {
- 
+        speed = 20;
+        damage = 1;
+        coldown = 0.3f;
+        StartCoroutine(TimerDestroy());
     }
+
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * guns.speed);
-
-        timer += 1 * Time.deltaTime;
-        if (timer >= guns.destroyAttack)
-        {
-            Destroy(gameObject);
-        }
-
+        ZarabatanaBullet();
     }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Colisao" || collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
+            if(collision.CompareTag("Enemy"))
+            {
+                EnemyControler enemy = collision.GetComponent<EnemyControler>();
+                if(enemy != null)
+                {
+                    enemy.DamageEnemy(damage);
+                }
+            }
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Colisao") Destroy(gameObject); 
     }
 }

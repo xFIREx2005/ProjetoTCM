@@ -189,9 +189,7 @@ GameObject:
   - component: {fileID: 4552668891569102408}
   - component: {fileID: 4552668891569102415}
   - component: {fileID: 970324776}
-  - component: {fileID: 1814896665358018342}
-  - component: {fileID: 6345423348628741764}
-  - component: {fileID: 7188844598585327322}
+  - component: {fileID: 2164676488584462567}
   m_Layer: 0
   m_Name: SprCobra
   m_TagString: Enemy
@@ -355,7 +353,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1814896665358018342
+--- !u!114 &2164676488584462567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,47 +362,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4552668891569102400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a76643be15528e4aa76c750e56984d0, type: 3}
+  m_Script: {fileID: 11500000, guid: dd9977a1da215604d94e03dc051c410e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colAttack: {fileID: 3453134520189344283, guid: 6a1aaaff4695f8e448d1a84a55e88e9d,
-    type: 3}
-  spawnAttack: {fileID: 4552668890929598281}
-  m_PositionPlayer: {fileID: 0}
-  coldown: 1.5
---- !u!114 &6345423348628741764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4552668891569102400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7833ffc56e98b204792481282e652754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 3
---- !u!114 &7188844598585327322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4552668891569102400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23acdfad5eadfdc45b8490c8421482ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMinimap: {fileID: 4552668890334795405}
-  sprEnemy: {fileID: 0}
-  m_Position: {fileID: 4552668890036675329}
-  patrol: 1
-  followPlayer: 1
-  timeStop: 4
-  speedFollow: 4
-  speedPatrol: 1.2
+  speedP: 1.2
+  speedF: 4
   disPatrol: 2
   disFollow: 4
   stopDis: 1.4
+  coldown: 1.5
+  timeStop: 4
+  life: 3
+  patrol: 1
+  followPlayer: 1
+  posPatrulha: {fileID: 4552668890036675329}
+  posSpAttack: {fileID: 4552668890929598281}
+  enemyMinimap: {fileID: 4552668890334795405}
+  colAttack: {fileID: 3453134520189344283, guid: 6a1aaaff4695f8e448d1a84a55e88e9d,
+    type: 3}
