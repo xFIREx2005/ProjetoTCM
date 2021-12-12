@@ -9,18 +9,46 @@ public class Sword : GunsControler
     {
         
         checkAttack = true;
-        coldown = 1.5f;
+        coldown = 0.3f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        AttackSword();
-        Aim();
+        if (!PlayerControler.isPaused)
+        {
+            AttackSword();
+            Aim();
+        }
     }
     public void CheckAttack()
     {
         checkAttack = true;
     }
-    
+
+    protected void AttackSword()
+    {
+        if (checkAttack == true)
+            if (Input.GetMouseButton(0))
+            {
+                audioAttack.Play();
+                animSword.SetBool("Attack", true);
+                checkAttack = false;
+                attack = true;
+            }
+
+        if (attack == true)
+        {
+            Instantiate(bullet, spawnSword.position, transform.rotation);
+            attack = false;
+        }
+    }
+
+    IEnumerator TimerSword()
+    {
+        animSword.SetBool("Attack", false);
+        yield return new WaitForSeconds(coldown);
+        checkAttack = true;
+    }
+
 }

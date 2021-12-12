@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7681989547824639348}
   - component: {fileID: 8038388999206424676}
   - component: {fileID: -4150138812296085089}
+  - component: {fileID: 6731822842434269695}
   m_Layer: 0
   m_Name: itens_e_animacoes_fogo_lado_15
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6460601958926184654, guid: 9dbf18811200c4c4ebc3c532ab281b01,
+  m_Sprite: {fileID: 1950103626875317320, guid: b647fb0ae2b48bf4ba8fc702d1f57074,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,6 +102,8 @@ MonoBehaviour:
   spawnBullet: {fileID: 0}
   colGranada: {fileID: 7170977556844750171, guid: 5e85df2d95858774db9dbbd153cf535d,
     type: 3}
+  explosionGrenade: {fileID: 1803770996982734720, guid: 31997925550567d4e86bddd9bf7be92a,
+    type: 3}
 --- !u!61 &8038388999206424676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,7 +128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
 --- !u!50 &-4150138812296085089
 Rigidbody2D:
@@ -148,3 +151,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &6731822842434269695
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666141293743418460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0867b93ecf0917542b16bac6da27aee9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
