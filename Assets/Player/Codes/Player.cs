@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : PlayerControler 
+public class Player : PlayerControler
 {
+    Animator animPlayer;
     bool checkSmokeRun;
     int numSmoke;
+    public GameObject pausePanel, optionsPanel, volumePanel, controlsPanel;
     private void Start()
     {
+        isPaused = false;
+        Time.timeScale = 1;
+        animPlayer = GetComponent<Animator>();
         sprPlayer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        speed = 10;
+        speed = 6;
         life = 3;
         gun = 1;
         checkSmokeRun = true;
@@ -20,9 +25,36 @@ public class Player : PlayerControler
 
     private void Update()
     {
-        ProcessInputs();
-        ChooseGun();
-        Run();
+        if (!isPaused)
+        {
+            ProcessInputs();
+            ChooseGun();
+            Run();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseScreen();
+        }
+    }
+
+    void PauseScreen()
+    {
+        if (isPaused)
+        {
+            isPaused = false;
+            Time.timeScale = 1;
+            pausePanel.SetActive(false);
+            optionsPanel.SetActive(false);
+            volumePanel.SetActive(false); 
+            controlsPanel.SetActive(false);
+        }
+        else
+        {
+            isPaused = true;
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
+        }
     }
     private void FixedUpdate()
     {
@@ -33,6 +65,10 @@ public class Player : PlayerControler
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+
+        animPlayer.SetBool("IsMoving", (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0));
+        animPlayer.SetFloat("MoveX", (moveX));
+        animPlayer.SetFloat("MoveY", (moveY));
 
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
@@ -46,8 +82,10 @@ public class Player : PlayerControler
     {
         if (Input.GetKey(KeyCode.Space) && (Input.GetButton("Vertical") || Input.GetButton("Horizontal")))
         {
-            speed = 13;
-            if (numSmoke <= 3)
+            CameraShake.Instance.ShakeCamera(0.1f, 0.1f);
+            animPlayer.speed = 1.5f;
+            speed = 9;
+            if (numSmoke <= 5)
                 if (checkSmokeRun == true)
                 {
                     Instantiate(smokeRun, smokeSpawn.transform.position, transform.rotation);
@@ -59,8 +97,9 @@ public class Player : PlayerControler
         }
         else
         {
+            animPlayer.speed = 1f;
             numSmoke = 0;
-            speed = 8;
+            speed = 6;
         }
 
         

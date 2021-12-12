@@ -17,9 +17,35 @@ public class Granada : GunsControler
     // Update is called once per frame
     void Update()
     {
-        Aim();
-        CreateGranada();
+        if (!PlayerControler.isPaused)
+        {
+            Aim();
+            if (checkGranada == true)
+            {
+                CreateGranada();
+            }
+        }
     }
 
+    protected void CreateGranada()
+    {
+
+        if (activeGrenade == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                audioAttack.Play();
+                Instantiate(bullet, transform.position, transform.rotation);
+                StartCoroutine(TimerGranada());
+                checkGranada = false;
+            }
+        }
+    }
+
+    IEnumerator TimerGranada()
+    {
+        yield return new WaitForSeconds(3);
+        checkGranada = true;
+    }
 
 }

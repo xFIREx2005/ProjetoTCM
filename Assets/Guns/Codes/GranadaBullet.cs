@@ -7,7 +7,7 @@ public class GranadaBullet : BulletControler
       
     void Start()
     {
-        speed = 15;
+        speed = 10;
     }
 
     // Update is called once per frame
@@ -17,10 +17,13 @@ public class GranadaBullet : BulletControler
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyAttack")
+        if (collision.CompareTag("Enemy"))
         {
-            Instantiate(colGranada, transform.position, transform.rotation);
-            Destroy(gameObject);
+            timer = 10;
+        }
+        if (collision.CompareTag("Colisao"))
+        {
+            timer = 10;
         }
     }
 }

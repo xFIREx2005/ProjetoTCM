@@ -12,7 +12,7 @@ public class Player2Follow : MonoBehaviour
 
     void Start()
     {
-        target = FindObjectOfType<Player>().transform;
+        
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;

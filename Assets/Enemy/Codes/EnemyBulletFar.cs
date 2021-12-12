@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeixeAttack : MonoBehaviour
+public class EnemyBulletFar : MonoBehaviour
 {
     public Transform m_PositionPlayer;
     float speed = 8;
@@ -42,6 +42,7 @@ public class PeixeAttack : MonoBehaviour
                 if (player != null)
                 {
                     player.DamagePlayer(1);
+                    Destroy(gameObject);
                 }
             }
             Destroy(gameObject);

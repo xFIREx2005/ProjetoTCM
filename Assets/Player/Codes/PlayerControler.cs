@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControler : MonoBehaviour
 {
-   
+
+    public static float activeSword, activeZarabatana;
+    public static bool isPaused;
     protected Rigidbody2D rb;
     protected Vector2 moveDirection;
     protected SpriteRenderer sprPlayer;
@@ -15,15 +18,20 @@ public class PlayerControler : MonoBehaviour
     protected int life;
     protected float speed;
 
-
     void Start()
     {
+        activeSword = PlayerStatic.Instance.ConsutarSword();
+        activeZarabatana = PlayerStatic.Instance.ConsutarZarabatana();
         rb = GetComponent<Rigidbody2D>();
         sprPlayer = GetComponent<SpriteRenderer>();
         objLife = GameObject.Find("LifePlayer");
+        isPaused = false;
+        Time.timeScale = 1;
     }
     void Update()
-    {
+    {    
+            ChooseGun();  
+
         
     }
 
@@ -32,10 +40,12 @@ public class PlayerControler : MonoBehaviour
     public void DamagePlayer(int damageBullet)
     {
         life -= damageBullet;
+        CameraShake.Instance.ShakeCamera(1.2f, 0.3f);
         StartCoroutine(Damage());
         CheckLife();
         if (life <= 0)
-        {  
+        {
+            Application.LoadLevel(Application.loadedLevel);
         }
 
     }
@@ -80,5 +90,13 @@ public class PlayerControler : MonoBehaviour
             gun = 1;
         }
 
+        if (activeSword != 1) sword.SetActive(false);
+        if (activeZarabatana != 1) zarabatana.SetActive(false);
+
+
     }
+
+    
 }
+
+

@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - EnemyAttack
   - Colisao
+  - Musics
+  - AudioFx
   layers:
   - Default
   - TransparentFX

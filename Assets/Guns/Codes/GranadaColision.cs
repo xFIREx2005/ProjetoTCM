@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GranadaColision : BulletControler
 {
-
+    public AudioSource audioExplosion;
     // Start is called before the first frame update
     void Start()
     {
-        scale = new Vector3(0.05f, 0.05f, 0);
+        audioExplosion.Play();
+        CameraShake.Instance.ShakeCamera(2f, 0.5f);
+        scale = new Vector3(0.1f, 0.1f, 0);
         damage = 5;
     }
 

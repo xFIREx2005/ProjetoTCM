@@ -9,18 +9,45 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 164b8d025e46ed54aaad9031d1f9e991
   - enabled: 1
-    path: Assets/Scenes/Opcoes.unity
-    guid: 729b404e4770da048881909ceaa0c6a2
+    path: Assets/Scenes/Laboratorio1.unity
+    guid: 9843a526d2e285740bb43a37d2e92238
   - enabled: 1
-    path: Assets/Scenes/MapaPrincipal.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Laboratorio2.unity
+    guid: ba714ecf7e49eb74dad5ed0854018732
   - enabled: 1
-    path: Assets/Scenes/Boss1.unity
-    guid: de0c925ee7c55284e83103c376700bc0
+    path: Assets/Scenes/FlorestaCurupira.unity
+    guid: 3a36ad6353b81f148b66574dc0cb1501
   - enabled: 1
-    path: Assets/Scenes/Boss2.unity
-    guid: 45670fa781cd3f64da3abdf47fcf5326
+    path: Assets/Scenes/PonteQuebrada.unity
+    guid: 0260606967ed50843bd3af7642c4419e
   - enabled: 1
-    path: Assets/Scenes/Boss3.unity
-    guid: b7f5c7ae95d77994c802f02d9eb9abf3
+    path: Assets/Scenes/CurupiraBattle.unity
+    guid: ff04aa080213c04418b0b59edf4caa34
+  - enabled: 1
+    path: Assets/Scenes/PonteParaCidade.unity
+    guid: 08da95c6ca304d046a5cdac9108705d3
+  - enabled: 1
+    path: Assets/Scenes/CidadeIlha.unity
+    guid: 5dfbe3b79688f0e45bc90916cea7b4df
+  - enabled: 1
+    path: Assets/Scenes/FlorestaBoitata.unity
+    guid: 310b806b7cdc822418082cc9b890faf9
+  - enabled: 1
+    path: Assets/Scenes/CidadeZarabatana.unity
+    guid: 495d1305f08343e4592dffc55f4d9624
+  - enabled: 1
+    path: Assets/Scenes/BoitataBattle.unity
+    guid: 5704f6c347708a7408017f529fdeeeca
+  - enabled: 1
+    path: Assets/Scenes/PonteCapelobo.unity
+    guid: 63e511ed86b3c2d47be46b76662555e0
+  - enabled: 1
+    path: Assets/Scenes/CapeloboBattle.unity
+    guid: b52cfcfb155ea4a4dbf37572b34cc53d
+  - enabled: 1
+    path: Assets/Scenes/CidadeGranada.unity
+    guid: ff17100fbdc55ed478d829cae6954f76
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 94e6fd77630823c41881f46a516ec319
   m_configObjects: {}

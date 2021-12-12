@@ -15,5 +15,5 @@ MonoBehaviour:
   sprites:
   - {fileID: 7429091872409528865, guid: 6cd35a14a0648ea488f9ad9060c7c1b4, type: 3}
   - {fileID: -1999287702345016116, guid: 6cd35a14a0648ea488f9ad9060c7c1b4, type: 3}
-  minSpeed: 0.2
-  maxSpeed: 3
+  minSpeed: 0.01
+  maxSpeed: 0.5

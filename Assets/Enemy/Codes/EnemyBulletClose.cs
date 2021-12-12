@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyEnemyAttack : MonoBehaviour
+public class EnemyBulletClose: MonoBehaviour
 {    float timeDestroy;
     public float destroyAttack;
 

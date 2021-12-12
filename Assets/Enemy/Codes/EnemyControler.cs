@@ -16,6 +16,7 @@ public class EnemyControler : MonoBehaviour
     protected SpriteRenderer sprEnemy;
     protected Animator animEnemy;
     NavMeshAgent agent;
+    public AudioSource audioDamage;
 
 
     void Awake()
@@ -35,6 +36,7 @@ public class EnemyControler : MonoBehaviour
 
     public void DamageEnemy(int damageBullet)
     {
+        audioDamage.Play();
         life -= damageBullet;
         StartCoroutine(Damage());
         if (life <= 0)
@@ -130,65 +132,8 @@ public class EnemyControler : MonoBehaviour
         yMax = posY + disPatrol;
     }
 
-    public void CheckAttackClose()
-    {
-        timerA += 1 * Time.deltaTime;
-        float _distPlayer = Vector2.Distance(transform.position, posPlayer.position);
+    
 
-        if (_distPlayer <= 1.7f) ShootClose();
-    }
-
-    void ShootClose()
-    {
-
-        if (timerA >= coldown)
-        {
-            Instantiate(colAttack, posSpAttack.position, transform.rotation);
-            timerA = 0f;
-        }
-    }
-
-
-    protected void CheckMoveFar()
-    {
-
-        float _distPlayer = Vector2.Distance(transform.position, posPlayer.position);
-
-        agent.SetDestination(posPlayer.transform.position);
-        agent.stoppingDistance = 0f;
-        agent.speed = 0f;
-
-
-        timerMF += 1 * Time.deltaTime;
-
-        if (_distPlayer <= disFollow)
-        {
-            if (timerMF >= 1.5f)
-            {
-                MovePlayerFar();
-                enemyMinimap.SetActive(true);
-            }
-        }
-
-    }
-
-    void MovePlayerFar()
-    {
-        animEnemy.SetBool("IsMoving", true);
-        animEnemy.SetFloat("MoveX", (posPlayer.transform.position.x - transform.position.x));
-        animEnemy.SetFloat("MoveY", (posPlayer.transform.position.y - transform.position.y));
-    }
-
-    void Timer()
-    {
-        timerMF = 0;
-        animEnemy.SetBool("IsMoving", false);
-
-    }
-
-    void ShootFar()
-    {
-        Instantiate(colAttack, posSpAttack.position, transform.rotation);
-    }
+    
 
 }

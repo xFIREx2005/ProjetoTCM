@@ -5,9 +5,9 @@ using UnityEngine;
 public class BulletControler : MonoBehaviour
 {
     protected Vector3 scale;
-    public Transform spawnBullet, colGranada;
+    public Transform spawnBullet, colGranada, explosionGrenade;
     protected int damage;
-    protected float speed, coldown;
+    protected float speed, coldown, timer;
 
     
 
@@ -31,9 +31,10 @@ public class BulletControler : MonoBehaviour
     protected void GranadaBullet()
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed);
-        speed -= 0.05f;
-        if (speed <= 0)
+        timer += Time.deltaTime;
+        if (timer >= 0.6f)
         {
+            Instantiate(explosionGrenade, transform.position, transform.rotation);
             Instantiate(colGranada, transform.position, transform.rotation);
             Destroy(gameObject);
         }
@@ -42,13 +43,13 @@ public class BulletControler : MonoBehaviour
     protected void GranadaColision()
     {
         
-        if (transform.localScale.x <= 4)
+        if (transform.localScale.x <= 3f)
         {
             transform.localScale += scale;
         }
         else
         {
-            scale = new Vector3(-0.05f, -0.05f, 0);
+            scale = new Vector3(-0.1f, -0.1f, 0);
             transform.localScale += scale;
         }
         if (transform.localScale.x <= 0)

@@ -24,6 +24,10 @@ public class Fire : MonoBehaviour
         timer += Time.deltaTime;
         if(timer >= 3)
         {
+            transform.localScale -= new Vector3(0.05f, 0.05f, 0);
+        }
+        if(transform.localScale.x <= 0)
+        {
             Destroy(gameObject);
         }
     }
