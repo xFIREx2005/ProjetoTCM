@@ -19,11 +19,14 @@ public class GranadaBullet : BulletControler
     {
         if (collision.CompareTag("Enemy"))
         {
-            timer = 10;
+timer = 10;
         }
         if (collision.CompareTag("Colisao"))
         {
             timer = 10;
+
+        
+
         }
     }
 }

@@ -5,7 +5,9 @@ using UnityEngine;
 public class BulletControler : MonoBehaviour
 {
     protected Vector3 scale;
-    public Transform spawnBullet, colGranada, explosionGrenade;
+
+
+    public Transform spawnBullet, colGrenade, explosionGrenade;
     protected int damage;
     protected float speed, coldown, timer;
 
@@ -36,6 +38,7 @@ public class BulletControler : MonoBehaviour
         {
             Instantiate(explosionGrenade, transform.position, transform.rotation);
             Instantiate(colGranada, transform.position, transform.rotation);
+          
             Destroy(gameObject);
         }
     }
